@@ -2,7 +2,7 @@ package day02;
 
 import java.util.Scanner;
 
-public class Eample2 {
+public class Example2 {
     public static void main(String[] args) {
         /*
         입력함수 : 콘솔 화면에 키보드로부터 입력받은 방법
@@ -68,6 +68,11 @@ public class Eample2 {
         System.out.print("9. nextBoolean() : ");        // 입력받은 논리(boolean) 반환 , 입력값이 boolean 허용범위 벗어나면 오류
         boolean value7 = scan.nextBoolean();
         System.out.println("9. nextBoolean() result : " + value7);
+
+        // 10. next().charAt( 0 );                      // 입력받은 문자열 중에 첫번째 글자 1개(char) 반환.
+        System.out.println("10. next() : ");
+        char value8 = scan.next().charAt( 0 );          // 0번째 인덱스 가져옴
+        System.out.println("10 next().char(0) result : " + value8 );
     } // main end
 } // class end
 
