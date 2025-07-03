@@ -35,6 +35,7 @@ public class 종합과제1 { // class s
                 System.out.println("인원수 : ");
                 int count = scan.nextInt();
 
+                // phone1 이 null 이면 입력받은 값 저장
                 if (phone1 == null) {
                     phone1 = phone;
                     count1 = count;
@@ -47,7 +48,7 @@ public class 종합과제1 { // class s
                     phone3 = phone;
                     count3 = count;
                     System.out.println("[안내] 대기 등록이 완료되었습니다.");
-                } else {
+                } else {    // phone3 까지 차있으면 경고 메시지
                     System.out.println("[경고] 더 이상 대기 등록을 할 수 없습니다.");
                 }
             } // if e
@@ -55,7 +56,7 @@ public class 종합과제1 { // class s
             // 2 눌렀을 때 , 메모리 구성들
             else if (choose == 2) {
                 System.out.println("============= 대기 현황 =============");
-                if (phone1 != null) {
+                if (phone1 != null) { // phone1 에 값이 있으면 출력
                     System.out.println("1. 연락처 : " + phone1 + " - 인원 : " + count1);
                     System.out.println("------------------------------------");
                 }
