@@ -1,85 +1,95 @@
 package day06;
+        class Book{
+            String title;   // 멤버변수
+            String author;
+            int price;
+        } // Book class end
 
-import static java.lang.System.*;
+        public class 실습7 { // class s
+            public static void main(String[] args) { // main s
+                // 문제 1 (실무에서 비권장 . 파일에 class 많으면 관리가 힘듬)
+                // * 자바에서 객체 생성하기 위해서는 *클래스*가 필요하다.
 
-class Book{
-    String title;   // 멤버변수
-    String author;
-    int price;
-} // Book class end
+                // 1) .java (실습7) 파일내 여러개 클래스 선언
+                // class Book{ }
 
-public class 실습7 { // class s
-    public static void main(String[] args) { // main s
+                // 2) 객체를 생성하고 ,  new 클래스명();에 변수를 저장.
+                Book b1 = new Book();
+                b1.title = "이것이 자바다.";
+                b1.author = "신용권";
+                b1.price = 30000;
 
-        // 문제 1 (실무에서 비권장 . 파일에 class 많으면 관리가 힘듬)
-        // * 자바에서 객체 생성하기 위해서는 *클래스*가 필요하다.
+                Book b2 = new Book();
+                b2.title = "자바의 정석";
+                b2.author = "남궁성";
+                b2.price = 28000;
 
-        // 1) .java (실습7) 파일내 여러개 클래스 선언
-            // class Book{ }
+                // 3) 두 객체의 모든 정보 각각 출력
+                System.out.println(b1.title + "\t" + b1.author + "\t" + b1.price + "\t");
+                System.out.println(b2.title + "\t" + b2.author + "\t" + b2.price + "\t");
 
-        // 2) 객체를 생성하고 ,  new 클래스명();에 변수를 저장.
-        Book b1 = new Book();
-        b1.title = "이것이 자바다.";
-        b1.author = "신용권";
-        b1.price = 30000;
+                // 문제 2
+                Pet p1 = new Pet();
+                p1.name = "초코";
+                p1.species = "푸들";
+                p1.age = 3;
 
-        Book b2 = new Book();
-        b2.title = "자바의 정석";
-        b2.author = "남궁성";
-        b2.price = 28000;
+                Pet p2 = new Pet();
+                p2.name = "나비";
+                p2.species = "코리안숏헤어";
+                p2.age = 5;
 
-        // 3) 두 객체의 모든 정보 각각 출력
-        out.println(b1.title + "\t" + b1.author + "\t" + b1.price + "\t");
-        out.println(b2.title + "\t" + b2.author + "\t" + b2.price + "\t");
+                System.out.printf("이름 : %s , 종류 : %s , 나이 : %d살 \n" , p1.name , p1.species , p1.age);
+                System.out.printf("이름 : %s , 종류 : %s , 나이 : %d살 \n" , p2.name , p2.species , p2.age);
 
-        // 문제 2
-        Pet p1 = new Pet();
-        p1.name = "초코";
-        p1.species = "푸들";
-        p1.age = 3;
+                // 문제 3
+                Rectangle wh = new Rectangle();
+                wh.width = 10;
+                wh.height = 5;
+                System.out.printf( "사각형의 넓이 : %d \n" , wh.width * wh.height );
 
-        Pet p2 = new Pet();
-        p2.name = "나비";
-        p2.species = "코리안숏헤어";
-        p2.age = 5;
+                // 문제 4
+                BankAccount a = new BankAccount();
+                a.accountNumber = "111-222-3333";
+                a.ownerName = "유재석";
+                a.balance = 10000;
+                a.balance += 5000;
+                System.out.printf("입금 후 잔액 : %d \n" , a.balance );
+                a.balance -= 3000;
+                System.out.printf("출금 후 잔액 : %d \n" , a.balance );
 
-        out.printf("이름 : %s , 종류 : %s , 나이 : %d살 \n" , p1.name , p1.species , p1.age);
-        out.printf("이름 : %s , 종류 : %s , 나이 : %d살 \n" , p2.name , p2.species , p2.age);
+                // 문제 5
+                Product n1 = new Product();
+                n1.name = "새우깡";
+                n1.price = 1500;
 
-        // 문제 3
-        Rectangle wh = new Rectangle();
-        wh.width = 10;
-        wh.height = 5;
-        out.printf( "사각형의 넓이 : %d \n" , wh.width * wh.height );
+                Product n2 = new Product();
+                n2.name = "콜라";
+                n2.price = 2000;
 
-        // 문제 4
-        BankAccount a = new BankAccount();
-        a.accountNumber = "111-222-3333";
-        a.ownerName = "유재석";
-        a.balance = 10000;
-        a.balance += 5000;
-        out.printf("입금 후 잔액 : %d \n" , a.balance );
-        a.balance -= 3000;
-        out.printf("출금 후 잔액 : %d \n" , a.balance );
+                if( n1.price > n2.price){
+                    System.out.println(n1.name);
+                }
+                else{
+                    System.out.println(n2.name);
+                }
 
-        // 문제 5
-        Product n1 = new Product();
-        n1.name = "새우깡";
-        n1.price = 1500;
+                // 문제 6
+                Member u = new Member();
+                u.id = "admin";
+                u.isLogin = false;
+                System.out.println("로그인 전 상태 : " + u.isLogin);
+                u.isLogin = true;
+                System.out.printf("로그인 후 상태 : [%s]\n" , u.isLogin);
 
-        Product n2 = new Product();
-        n2.name = "콜라";
-        n2.price = 2000;
+                // 문제 7
+                Television t = new Television();
+                t.channel = 7;
+                t.volume = 20;
 
-        if( n1.price > n2.price){
-            System.out.println(n1.name);
-        }
-        else{
-            System.out.println(n2.name);
-        }
 
-    } // main e
-} // class e
+            } // main e
+        } // class e
 
 
 //[문제 1] Book 클래스를 만드세요. 이 클래스는 title(문자열), author(문자열), price(정수) 멤버 변수를 가집니다.
@@ -129,3 +139,4 @@ public class 실습7 { // class s
 //2. Scanner를 사용하여 사용자로부터 이름, 나이, MBTI를 순서대로 입력받으세요.
 //3. 입력받은 값들을 생성된 객체의 각 멤버 변수에 저장하세요.
 //3. 모든 정보가 저장된 객체의 멤버 변수들을 가져와 "--- 프로필 ---", "이름: [이름]", "나이: [나이]", "MBTI: [MBTI]" 형식으로 출력하세요.
+
