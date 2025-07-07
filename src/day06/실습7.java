@@ -1,5 +1,9 @@
 package day06;
-        class Book{
+
+import java.awt.*;
+import java.util.Scanner;
+
+class Book{
             String title;   // 멤버변수
             String author;
             int price;
@@ -86,7 +90,70 @@ package day06;
                 Television t = new Television();
                 t.channel = 7;
                 t.volume = 20;
+                t.channel = 11;
+                t.volume -= 2;
+                System.out.println("채널 : " + t.channel + "볼륨 : " + t.volume);
 
+
+                // 문제 8
+                Player c1 = new Player();
+                c1.name = "손흥민";
+                c1.power = 90;
+                c1.speed = 95;
+                Player c2 = new Player();
+                c2.name = "이강인";
+                c2.power = 85;
+                c2.speed = 92;
+                int sum1 = c1.power + c1.speed;
+                int sum2 = c2.power + c2.speed;
+                if( sum1 > sum2 ){
+                    System.out.println(c1.name);
+                }else {
+                    System.out.println(c2.name);
+                }
+                // 문제 9
+
+                MenuItem m1 = new MenuItem();
+                m1.name = "김치찌개";
+                m1.price = 8000;
+                m1.isSignature = true;
+
+                MenuItem m2 = new MenuItem();
+                m2.name = "된장찌개";
+                m2.price = 8000;
+                m2.isSignature = false;
+
+                MenuItem m3 = new MenuItem();
+                m3.name = "계란찜";
+                m3.price = 3000;
+                m3.isSignature = false;
+
+                MenuItem[] menu = {m1 , m2 , m3};
+
+                for( MenuItem m : menu){
+                    if(m.isSignature == true ){
+                        System.out.printf("[대표메뉴] [%s] : [%d]원\n" , m.name , m.price);
+                    }
+                }
+                // 문제 10
+
+                UserProfile u1 = new UserProfile();
+                Scanner scan = new Scanner(System.in);
+
+                System.out.println("이름 : ");
+                String name = scan.next();
+                u1.name = name;
+
+                System.out.println("나이 : ");
+                int age = scan.nextInt();
+                u1.age = age;
+
+                System.out.println("MBTI : ");
+                String mbti = scan.next();
+                u1.mbti = mbti;
+
+                System.out.println("--- 프로필 ---");
+                System.out.printf(" 이름 : [%s] , 나이 : [%d] , MBTI : [%s]" , u1.name , u1.age , u1.mbti);
 
             } // main e
         } // class e

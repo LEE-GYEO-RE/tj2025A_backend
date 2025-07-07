@@ -7,11 +7,11 @@ public class 실습6 { // class s
     public static void main(String[] args) { // main s
 
         // 문제 1
-        int[] number = { 10 , 20 , 30 , 40 , 50 };
+        int[] number = {10, 20, 30, 40, 50};
         System.out.println(number[2]);
 
         // 문제 2
-        String [] season = new String[3];
+        String[] season = new String[3];
         season[0] = "봄";
         season[1] = "여름";
         season[2] = "가을";
@@ -20,45 +20,49 @@ public class 실습6 { // class s
         // 문제 3
         // (1) 일반 for문
         String[] fruits = {"사과", "바나나", "포도", "딸기"};
-        for( int i = 0 ; i <= fruits.length -1 ; i++){
+        for (int i = 0; i <= fruits.length - 1; i++) {
             System.out.println(fruits[i]);
         }
         // (2) 향상된 for문
-        for( String fruit : fruits ){
+        for (String fruit : fruits) {
             System.out.println(fruit);
         }
 
         // 문제 4
-        int [] scores = { 85, 92, 78, 65, 95 };
+        int[] scores = {85, 92, 78, 65, 95};
         int sum = 0;
         double 평균 = 0.0;
-        for ( int score : scores ){
+        for (int score : scores) {
             sum += score;
-            평균 = sum/scores.length;
+            평균 = sum / scores.length;
         } // for e
         System.out.println("합계 : " + sum);
         System.out.println("평균 : " + 평균);
 
         // 문제 5
         int[] scores2 = {77, 82, 100, 54, 96};
-        for( int score : scores2 ){
-            if( score == 100 ){break;}
+        for (int score : scores2) {
+            if (score == 100) {
+                break;
+            }
         } // for e
         System.out.println("100점 만점자를 찾았습니다!");
 
         // 문제 6
         String[] bloodTypes = {"A", "B", "O", "AB", "A", "B", "A"};
         int countA = 0;
-        for( String blood : bloodTypes){
-            if( blood.equals("A")){ countA += 1; }                  // 만약 배열내 요소가 "A"이면 countA 변수 1 증가
+        for (String blood : bloodTypes) {
+            if (blood.equals("A")) {
+                countA += 1;
+            }                  // 만약 배열내 요소가 "A"이면 countA 변수 1 증가
         }
-        System.out.println("A혈액형 개수 : " + countA );
+        System.out.println("A혈액형 개수 : " + countA);
 
         // 문제 7
         int[] numbers = {23, 5, 67, 12, 88, 34};
         int max = 0;
-        for( int number1 : numbers ){
-            if( number1 >= max ){
+        for (int number1 : numbers) {
+            if (number1 >= max) {
                 max = number1;
             }
         }
@@ -67,39 +71,43 @@ public class 실습6 { // class s
         // 문제 8
         String[] products = {"볼펜", "노트", "지우개"};
         int[] stock = {10, 5, 20};
-        Scanner scan = new Scanner( System.in);                              // 1) 입력객체 생성하여 변수에 저장
-        System.out.print(">>상품명 : ");        String name = scan.next();    // 2) 상품명 입력받아 변수에 저장
-        System.out.print(">>구매수량 : ");      int count = scan.nextInt();
+        Scanner scan = new Scanner(System.in);                              // 1) 입력객체 생성하여 변수에 저장
+        System.out.print(">>상품명 : ");
+        String name = scan.next();    // 2) 상품명 입력받아 변수에 저장
+        System.out.print(">>구매수량 : ");
+        int count = scan.nextInt();
         int check = 0;                                                      // 0 : 없는 제품 , 1:구매완료 , 2:재고부족
-        for( int index = 0 ; index <= products.length - 1 ; index++ ){      // 3) 0부터 마지막인덱스까지 1씩 반복
+        for (int index = 0; index <= products.length - 1; index++) {      // 3) 0부터 마지막인덱스까지 1씩 반복
             String product = products[index];                               // 4) index번째 제품명 호출
-            if( product.equals( name ) ){                                   // 5) 만약에 index번째 제품명과 입력받은 값이 같으면
-                if( stock[index] >= count ){                                // 6) 만약에 index번째 재고 보다 입력받은 재고가 더 크면
+            if (product.equals(name)) {                                   // 5) 만약에 index번째 제품명과 입력받은 값이 같으면
+                if (stock[index] >= count) {                                // 6) 만약에 index번째 재고 보다 입력받은 재고가 더 크면
                     stock[index] -= count;                                  // 7) 재고 차감
-                    check = 1; break;                                       // 8) 상태변수 변경
-                }else{
-                    check = 2 ; break;
+                    check = 1;
+                    break;                                       // 8) 상태변수 변경
+                } else {
+                    check = 2;
+                    break;
                 } // if end
             } // if end
         } // for end
-        if(check == 0){
+        if (check == 0) {
             System.out.println(" 없는 제품 입니다. ");
         } else if (check == 1) {
             System.out.println(" 구매 완료 ");
-        } else if( check == 2){
+        } else if (check == 2) {
             System.out.println(" 재고 부족");
         }
 
         // 문제 9
         String[] movieNames = {"히든페이스", "위키드", "글래디에이터2", "청설"};
         int[] movieRatings = {8, 4, 7, 6};
-        for ( int index = 0 ; index <= movieNames.length -1 ; index++){
+        for (int index = 0; index <= movieNames.length - 1; index++) {
             String movie = movieNames[index];
             System.out.print(movie);
-            for( int star = 1; star <= 10 ; star++){
-                if( star <= movieRatings[index]) {   // 만약 index 번째 평점이 현재 별보다 크거나 같으면 검은별 , 아니면 흰별
+            for (int star = 1; star <= 10; star++) {
+                if (star <= movieRatings[index]) {   // 만약 index 번째 평점이 현재 별보다 크거나 같으면 검은별 , 아니면 흰별
                     System.out.print("★");
-                }else {
+                } else {
                     System.out.print("☆");
                 }
             } // for2 end
@@ -122,11 +130,12 @@ public class 실습6 { // class s
         int min_price = 1000;
         int Add_time = 10;
         int price = 0;
-        for( int index = 0; index <= carNumbers.length -1 ; index++){
+        for (int index = 0; index <= carNumbers.length - 1; index++) {
             String carNumber = carNumbers[index];
 
-            }
         }
+    }
+}
 
 
 
@@ -193,5 +202,4 @@ public class 실습6 { // class s
         //888호8888: 140분 주차, 최종 요금: 6500원
         //931나8234: 420분 주차, 최종 요금: 20000원
 
-    } // main e
-} // class e
+
