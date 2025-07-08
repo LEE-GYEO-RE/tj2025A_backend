@@ -65,6 +65,15 @@ public class Example1 { // class s
         cal2.printSum( 10 , 2 );
         // 전원 꺼져있어서 계산 안되고 "전원이 꺼져 있습니다 " 출력.
 
+
+        // [6] 매개변수 o , 반환값 o
+        int result2 = cal1.add( 10 , 3 );
+        // int : .add 함수의 반환값 타입이 int 라서. 여기도 인수값과 매개변수의 타입이 일치해야함 무조건.!!!
+        System.out.println(result2);
+
+
+
+
     } // main e
 } // class e
 
