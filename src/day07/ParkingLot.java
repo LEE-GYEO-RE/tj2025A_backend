@@ -10,6 +10,13 @@ public class ParkingLot {
 
         int fee = 0;
 
+        if( time <= 30){
+            fee = 1000;
+        } else if (time > 30) {
+            fee = 1000 + ((time - 30) / 10 * 500);
+        } else if (fee > 20000) {
+            fee = 20000;
+        }
 
         return  fee;
     } // func end
