@@ -1,5 +1,7 @@
 package day08;
 
+import java.util.Scanner;
+
 public class 실습9 { // class s
     public static void main(String[] args) { // main s
         // 문제 1
@@ -56,12 +58,11 @@ public class 실습9 { // class s
         System.out.printf("이름 : %s \t , 파워 : %d \t , 스피드 : %d \n" , u2.name , u2.power , u2.speed);
 
 
-//[문제 9] MenuItem 클래스를 만드세요. (name, price, isSignature 멤버 변수) *멤버변수의 타입은 적절하게 선택하시오.
-//1. 세 멤버 변수를 모두 초기화하는 생성자를 만드세요.
-//2. main 함수에서 이 생성자를 사용하여 "김치찌개", 8000, true 정보를 가진 객체를 생성하고, isSignature가 true인지 확인한 후 "[대표메뉴] 김치찌개 : 8000원" 형식으로 출력하세요.
-//
-
         // 문제 9
+        MenuItem menu1 = new MenuItem("김치찌개", 8000, true);
+
+
+
 
 //[문제 10] UserProfile 클래스를 만드세요. (name, age, mbti 멤버 변수) *멤버변수의 타입은 적절하게 선택하시오.
 //1. 세 멤버 변수를 모두 초기화하는 생성자를 만드세요.
@@ -69,6 +70,14 @@ public class 실습9 { // class s
 //3. 입력받은 값들을 사용하여 UserProfile 객체를 생성하고, 저장된 모든 정보를 출력하세요.
 
         // 문제 10
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("이름 : ");   String name = scan.next();
+        System.out.println("나이 : ");    int age = scan.nextInt();
+        System.out.println("MBTI : ");  String mbti = scan.next();
+
+        UserProfile user = new UserProfile( name , age , mbti );
+        System.out.printf("이름 : %s \t 나이 : %d \t MBTI : %s \n" , user.name , user.age , user.mbti );
 
 
 
