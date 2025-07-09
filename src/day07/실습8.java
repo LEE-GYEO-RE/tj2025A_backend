@@ -34,7 +34,8 @@ public class 실습8 {
 
         // 문제 7
         Visualizer v1 = new Visualizer();
-        v1.getStar( 5 );
+        String star = v1.getStar( 5 );
+        System.out.println(star);
 
         // 문제 8
 // [문제 8] ParkingLot 클래스를 만드세요.
@@ -45,6 +46,11 @@ public class 실습8 {
 //일일 최대 요금: 20,000원
 //3. main 함수에서 calculateFee 메소드에 65, 140을 각각 인자로 전달하여 반환된 요금을 출력하세요.
 
+        ParkingLot u1 = new ParkingLot();
+        int result8 = u1.calculateFee(65);
+        int result9 = u1.calculateFee(140);
+        System.out.println(result8);
+        System.out.println(result9);
 
     }
 }
