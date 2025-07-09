@@ -62,13 +62,6 @@ public class 실습9 { // class s
         MenuItem menu1 = new MenuItem("김치찌개", 8000, true);
 
 
-
-
-//[문제 10] UserProfile 클래스를 만드세요. (name, age, mbti 멤버 변수) *멤버변수의 타입은 적절하게 선택하시오.
-//1. 세 멤버 변수를 모두 초기화하는 생성자를 만드세요.
-//2. Scanner를 사용하여 사용자로부터 이름, 나이, MBTI를 입력받으세요.
-//3. 입력받은 값들을 사용하여 UserProfile 객체를 생성하고, 저장된 모든 정보를 출력하세요.
-
         // 문제 10
 
         Scanner scan = new Scanner(System.in);
