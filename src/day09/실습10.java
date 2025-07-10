@@ -23,6 +23,20 @@ public class 실습10 { // class s
 
         // 문제 5
 
+        TicketMachine machine1 = new TicketMachine();
+        TicketMachine machine2 = new TicketMachine();
+        TicketMachine machine3 = new TicketMachine();
+        machine1.issueTicket();
+        machine1.issueTicket();
+        machine2.issueTicket();
+        TicketMachine.printTotalTickets();
+
+        // 문제 6
+
+        System.out.printf("게임 제목 : %s \t 최대 레벨 : %d \t 최대 HP : %d \n" , GameConfig.GAME_TITLE , GameConfig.MAX_LEVEL , GameConfig.MAX_HP );
+
+
+
 
 
 
@@ -75,4 +89,5 @@ public class 실습10 { // class s
 //최대 레벨 MAX_LEVEL = 99
 //최대 HP MAX_HP = 10000
 //게임 이름 GAME_TITLE = "My RPG"
-//2. main 함수에서 객체를 생성하지 않고, GameConfig.GAME_TITLE과 같이 클래스 이름으로 직접 접근하여 모든 설정 값을 출력하세요.
+//2. main 함수에서 객체를 생성하지 않고,
+// GameConfig.GAME_TITLE과 같이 클래스 이름으로 직접 접근하여 모든 설정 값을 출력하세요.
