@@ -24,4 +24,12 @@ public class BankController2 {
         // 2. 잔액 부족 시 잔액부족 메시지
     // 메소드 호출
     // 출력
+
+    Account2 [ ] account2s = new Account2[100];
+
+    private boolean GetAccount(String account ,int password){
+
+        return true;
+    }
+
 }
