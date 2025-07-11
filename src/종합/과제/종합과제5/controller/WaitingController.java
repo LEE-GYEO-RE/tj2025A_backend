@@ -18,9 +18,12 @@ public class WaitingController {
     // 등록 처리 메소드
     // view 에게 전달받은 phone , writer 객체로 구성하여 dao 에게 전달 후 결과를 view에게 전달
     public boolean getWaiting(String phone , int count ){
-        // 여기서 result에 false 넣는 이유는?
         boolean result = false;
+        // 여기서 result에 false 넣는 이유는?
+        // result 에 false로 기본값 설정과 초기화 해주면서 유연성 확보, 컴파일 에러 방지
+        // 밑에서 초기 false 값 다시 지정했으니깐 false는 필요없어짐.
         result = waitingDao.getWaiting(phone, count);
+        // result 를 waitingDao.getWaiting(phone, count) 이거로 덮어버림.
         return  result;
     }
 
