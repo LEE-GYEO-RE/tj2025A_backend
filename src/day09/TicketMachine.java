@@ -8,10 +8,9 @@ public class TicketMachine {
     // 저게 만약 없으면 , 객체마다 totalTickets 값이 독립적이게 됨
     //-------> 그러면 누적값이 아니라 따로따로 나옴
 
-    int issueTicket(){
-        totalTickets += 1;
+    void issueTicket(){
+        totalTickets ++;
         System.out.println("티켓 1장을 발권했습니다.");
-       return totalTickets;
     }
 
      static void printTotalTickets(){
