@@ -11,4 +11,5 @@ public class Account2 {
         this.password = password;
         this.money = 0;
     }
+
 }
