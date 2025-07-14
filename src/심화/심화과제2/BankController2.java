@@ -94,8 +94,5 @@ public class BankController2 {
     } // func e
 
     // 계좌이체 메소드 -- 으음...이체 하는 사람 , 받는 사람 구분 어케 나누지
-    boolean accounttransfer( String sendaccount ){
-
-    }
 
 }
