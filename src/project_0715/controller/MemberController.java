@@ -3,7 +3,14 @@ package project_0715.controller;
 public class MemberController { // class start
 
     private static int logInMno = 0 ;
-    // getter , setter  필요함 아직 안만듬
+
+    public static int getLogInMno() {
+        return logInMno;
+    }
+
+    public static void setLogInMno(int logInMno) {
+        MemberController.logInMno = logInMno;
+    }
 
     private MemberController(){}
     private static final MemberController memberController = new MemberController();
