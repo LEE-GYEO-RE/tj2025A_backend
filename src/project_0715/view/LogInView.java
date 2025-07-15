@@ -1,5 +1,10 @@
 package project_0715.view;
 
+import project_0715.controller.BookInfoController;
+import project_0715.controller.MemberController;
+import project_0715.model.dto.MemberDto;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LogInView { // class start
@@ -9,6 +14,8 @@ public class LogInView { // class start
     public static LogInView getInstance(){
         return loginView;
     }
+
+    MemberController memberController = MemberController.getInstance();
 
     Scanner scan = new Scanner(System.in);
 
@@ -21,10 +28,8 @@ public class LogInView { // class start
             System.out.println("=====================================");
             System.out.println("선택 > ");
             int choose = scan.nextInt();
-            if( choose == 1 ){
-
-            }else if (choose == 2){
-
+            if( choose == 1 ){ signup();
+            }else if (choose == 2){ login();
             }
         } // for e
     } // func e
@@ -35,18 +40,102 @@ public class LogInView { // class start
         System.out.println("--- 회원 가입 ---");
         System.out.println("아이디 : ");       String memberId = scan.next();
         System.out.println("비밀번호 : ");      String memberPwd = scan.next();
-        System.out.println("이름 : ");
-        System.out.println("연락처 : ");
-        System.out.println("[안내] 관리자 계정이 등록되었습니다.");
+        System.out.println("이름 : ");         String memberName = scan.next();
+        System.out.println("연락처 : ");       String memberTel = scan.next();
+        int result = memberController.getMember(memberId ,memberPwd ,memberTel ,memberName);
+        if(result == -1 ){
+            System.out.println("회원가입 실패 : 아이디가 존재합니다.");
+        } else if (memberId.equals("admin")) {
+            System.out.println("관리자 권한으로 회원가입 성공" + result);
+            login();
+        }else {
+            System.out.println("일반 회원으로 회원가입 성공" + result);
+            login();
+        }
 
     }
 
 
-    // 회원가입 화면
+    // 로그인 화면
     public void  login(){
+        System.out.println("--- 로그인 ---");
+        System.out.println("아이디 : ");       String memberId = scan.next();
+        System.out.println("비밀번호 : ");      String memberPwd = scan.next();
+        int result1 = memberController.login( memberId ,memberPwd );
+        if( result1 == 1 ){
+            System.out.println("[안내] 관리자 로그인 성공 ");
+            adminlogin();
+        } else if (result1 == 2) {
+            System.out.println("[안내]일반 회원 로그인 성공 ");
+            userlogin();
+
+        }else if (result1 == 3 ){
+            System.out.println("[경고] 아이디와 비밀번호를 확인해주세요. ");
+        }
 
     }
 
+    // 로그인 후 메뉴 (일반 회원)
+    public void userlogin(){
+        for( ; ; ) {
+            System.out.println("=========== 로그인 후 메뉴 (일반회원) ===========");
+            System.out.println("  1.도서등록 | 2.도서대출 | 3.도서반납 | 4.내대출현황 | 5.도서목록 | 6.로그아웃");
+            System.out.println("=============================================");
+            System.out.println("선택 > ");
+            int choose = scan.nextInt();
+            if( choose == 1 ){
+                System.out.println("[경고] 해당 메뉴는 관리자만 접근 가능합니다.");
+            }
+            else if (choose == 2 ){
+                loanBook();
+            }
+            else if (choose == 3 ){
+                returnBook();
+            }
+            else if (choose == 4 ){
+                bookState();
+            }
+            else if (choose == 5 ){
+
+            }
+            else if (choose == 6 ){
+                System.out.println("[안내] 로그아웃 되었습니다.");
+                index();
+            }
+        } // for e
+
+    }
+
+    // 로그인 후 메뉴 (관리자 모드)
+    public void adminlogin(){
+
+        for( ; ; ) {
+            System.out.println("=========== 로그인 후 메뉴 (관리자) ===========");
+            System.out.println("  1.도서등록 | 2.도서대출 | 3.도서반납 | 4.내대출현황 | 5.도서목록 | 6.로그아웃");
+            System.out.println("=============================================");
+            System.out.println("선택 > ");
+            int choose = scan.nextInt();
+            if( choose == 1 ){
+                addBook();
+            }
+            else if (choose == 2 ){
+                loanBook();
+            }
+            else if (choose == 3 ){
+                returnBook();
+            }
+            else if (choose == 4 ){
+                bookState();
+            }
+            else if (choose == 5 ){
+
+            }
+            else if (choose == 6 ){
+                System.out.println("[안내] 로그아웃 되었습니다.");
+                index();
+            }
+        } // for e
+    } // func e
 
 
 
@@ -54,10 +143,42 @@ public class LogInView { // class start
 
 
 
+    // 도서 등록
+    public void addBook(){
 
+        System.out.println("--- 도서 등록 ---");
+        System.out.println("도서명 : ");
+        System.out.println("저자 : ");
+        System.out.println("[안내] 도서 등록이 완료되었습니다.");
+    }
 
+    // 도서 대출
+    public void loanBook(){
 
+        System.out.println("--- 도서 대출 ---");
+        System.out.println("대출할 도서 번호 :");
+        System.out.println("[안내] 도서 대출이 완료되었습니다.");
+    }
 
+    // 도서 반남
+    public void returnBook(){
 
+        System.out.println("--- 도서 반납 ---");
+        System.out.println("반납할 도서 번호 : ");
+        System.out.println("[안내] 도서 반납이 완료되었습니다.");
+    }
+
+    // 내 대출 현황
+    public void bookState(){
+
+        System.out.println("--- 나의 대출 현황 ---");
+        System.out.println("[1] 책이름| 저자 | 대출일: ");
+
+    }
+
+    // 도서 목록
+    public void bookList(){
+
+    } // func e
 
 } // class end
