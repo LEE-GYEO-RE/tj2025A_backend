@@ -17,6 +17,9 @@ public class MemberController { // class start
     // dao 싱글톤 가져오기
     MemberDao memberDao = MemberDao.getInstance();
 
+    // 회원번호 선언
+    private int loginMno;
+
     // dao에서 받은 반환값을 (추가된 회원) view로 전달해서 view에서 쓰려고 생성한 메소드
     public int getMember(String memberId , String memberPwd , String memberTel , String memberName){
         return memberDao.insertMember(memberId , memberPwd ,memberTel ,memberName);
@@ -36,5 +39,10 @@ public class MemberController { // class start
         return 2; // 일반회원 등록
     } // func e
 
+
+    // 로그아웃 메소드 , 회원번호 초기화
+    public void logOut(){
+        loginMno = 0;
+    }
 
 } // class end
