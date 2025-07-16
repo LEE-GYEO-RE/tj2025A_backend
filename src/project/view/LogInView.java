@@ -1,10 +1,7 @@
-package project_0715.view;
+package project.view;
 
-import project_0715.controller.BookInfoController;
-import project_0715.controller.MemberController;
-import project_0715.model.dto.MemberDto;
+import project.controller.MemberController;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LogInView { // class start

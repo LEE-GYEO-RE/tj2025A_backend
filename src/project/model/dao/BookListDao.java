@@ -1,6 +1,6 @@
-package project_0715.model.dao;
+package project.model.dao;
 
-import project_0715.model.dto.BookListDto;
+import project.model.dto.BookListDto;
 
 import java.util.ArrayList;
 

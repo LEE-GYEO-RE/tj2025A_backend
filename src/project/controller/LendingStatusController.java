@@ -1,4 +1,4 @@
-package project_0715.controller;
+package project.controller;
 
 public class LendingStatusController { // class start
 

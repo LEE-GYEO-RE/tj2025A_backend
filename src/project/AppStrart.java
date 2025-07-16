@@ -1,6 +1,6 @@
-package project_0715;
+package project;
 
-import project_0715.view.LogInView;
+import project.view.LogInView;
 
 public class AppStrart {
 

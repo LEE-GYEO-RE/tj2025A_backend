@@ -1,9 +1,7 @@
-package project_0715.controller;
+package project.controller;
 
-import project_0715.model.dao.MemberDao;
-import project_0715.model.dto.MemberDto;
-
-import java.util.ArrayList;
+import project.model.dao.MemberDao;
+import project.model.dto.MemberDto;
 
 public class MemberController { // class start
 

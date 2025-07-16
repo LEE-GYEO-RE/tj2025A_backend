@@ -1,6 +1,6 @@
-package project_0715.controller;
+package project.controller;
 
-import project_0715.model.dao.BookInfoDao;
+import project.model.dao.BookInfoDao;
 
 public class BookInfoController { // class start
 

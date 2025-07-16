@@ -1,6 +1,6 @@
-package project_0715.view;
+package project.view;
 
-import project_0715.controller.MemberController;
+import project.controller.MemberController;
 
 import java.util.Scanner;
 

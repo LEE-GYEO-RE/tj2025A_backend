@@ -1,4 +1,4 @@
-package project_0715.model.dto;
+package project.model.dto;
 
 public class MemberDto {    // class MemberDto start
     // 멤버변수
