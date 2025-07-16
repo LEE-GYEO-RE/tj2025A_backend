@@ -15,12 +15,15 @@ public class MemberController { // class start
     // dao 싱글톤 가져오기
     MemberDao memberDao = MemberDao.getInstance();
 
-    // 회원번호 선언
-    private int loginMno;
 
     // dao에서 받은 반환값을 (추가된 회원) view로 전달해서 view에서 쓰려고 생성한 메소드
     public int getMember(String memberId , String memberPwd , String memberTel , String memberName){
-        return memberDao.insertMember(memberId , memberPwd ,memberTel ,memberName);
+        int result = memberDao.insertMember(memberId , memberPwd ,memberTel ,memberName);
+        if(result == -1) return 3;
+        if( memberId.equals("admin")){
+            return -1;
+        }
+        return 2;
     }
 
     // 로그인 성공여부
@@ -33,14 +36,17 @@ public class MemberController { // class start
         MemberDto member = memberDao.findMember(memberId, memberPwd);
         // 입력한 아이디와 비밀번호가 일치하는 회원이 있는지 DAO에서 찾고, 일치하는 회원 정보(MemberDto)를 가져오라는 코드
         if (member == null) return 3; // 일치하는 게 없으면 null 로그인 실패
-        if (member.getMemberId().equals("admin")) return 1; // 관리자 등록
+        if (member.getMemberId().equals("admin")) {
+            memberDao.setLogInMno(-1);
+            return -1; // -1값으로 관리자 회원 분류, 관리자 등록
+        }
         return 2; // 일반회원 등록
     } // func e
 
 
     // 로그아웃 메소드 , 회원번호 초기화
     public void logOut(){
-        loginMno = 0;
+        memberDao.setLogInMno(0); // 로그아웃하면 회원번호 0으로 초기화
     }
 
 } // class end

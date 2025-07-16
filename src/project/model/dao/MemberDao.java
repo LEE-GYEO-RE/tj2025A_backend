@@ -9,6 +9,16 @@ public class MemberDao {
     // logInMno 변수생성
     private static int logInMno = 0 ;
 
+    // logInMno 넘겨주는 생성자
+    public int getLogInMno(){
+        return logInMno;
+    }
+
+    // logInMno 저장하는 생성자
+    public void setLogInMno(int logInMno){
+        this.logInMno = logInMno;
+    }
+
     // 싱글톤
     private MemberDao(){}
     private static final MemberDao memberDao = new MemberDao();
@@ -38,7 +48,7 @@ public class MemberDao {
 
     // 회원 등록 메소드 // 아이디 , 비번, 전화번호 , 이름을 매개로 갖는
     public int insertMember(String memberId , String memberPwd , String memberTel , String memberName){
-        if(isDuplicateId(memberId)) return -1; // 아이디 중복 : 실패!!
+        if(isDuplicateId(memberId)) return 1; // 아이디 중복 : 실패!!
         // 중복 id 메소드 실행 해서 중복된 id 존재하면 바로 메소드 종료 , -1 반환
 
         int newMno = ++logInMno; // 자동번호 증가 저장
@@ -66,6 +76,5 @@ public class MemberDao {
     public ArrayList<MemberDto> getAll(){
         return memberDB;
     } // func e
-
 
 } // class e

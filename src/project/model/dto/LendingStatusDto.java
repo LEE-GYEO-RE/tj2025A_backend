@@ -1,5 +1,8 @@
 package project.model.dto;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class LendingStatusDto { // class LendingStatusDto start
     // 멤버변수
     private int loanLog;        // 대출코드
@@ -38,6 +41,15 @@ public class LendingStatusDto { // class LendingStatusDto start
         this.dueDate = dueDate;
         this.bookLog = bookLog;
         this.memberNo = memberNo;
+    }
+
+    public LendingStatusDto(int bookLogInput, int memberNo) {
+    }
+
+    // 반납 메소드
+    public void setDueDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        dueDate = formatter.format( LocalDateTime.now() ) ;
     }
 
     // setter getter
