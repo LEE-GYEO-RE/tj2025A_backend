@@ -107,6 +107,8 @@ class Character{
     void use(Weapon weapon){
         weapon.attack();
     }
+    // 여기서 Weapon weapon을 매개변수로 받는 동시에 선언되는 중.
+    // 그래서 weapon.~~ 바로 쓸수 있는것.
 }
 
 // 문제 9
@@ -123,6 +125,16 @@ class SubClass extends SuperClass{
     }
 }
 
+// 문제 10
+class Device{
+
+}
+class Electronic extends Device{
+
+}
+class Laptop extends Electronic{
+
+}
 
 public class 실습12 {
     public static void main(String[] args) {
@@ -158,7 +170,7 @@ public class 실습12 {
 
         // 문제 6
         Vehicle vehicle = new Bus();    // 업캐스팅
-        if( vehicle instanceof Bus){
+        if( vehicle instanceof Bus){    // vehicle 이 Bus 타입이면
             Bus bus = (Bus) vehicle;    // 다운캐스팅
             bus.checkFare();            // 자식클래스의 메소드 호출
         } // if e
@@ -167,7 +179,7 @@ public class 실습12 {
         // 부모 타입 상속하므로 타입도 자동 변환 가능 , (Vdhicle) bus 이런거 안해도됨.
         // 다운 캐스팅 : 상위 클래스 타입의 참조를 다시 하위 클래스 타입으로 (강제로!!)변환하는 것.
         // 다운 캐스팅 목적
-            // 1. 자식 클래스에만 있는 멤버 , 메소드 쓰기 위해서
+            // 자식 클래스에만 있는 멤버 , 메소드 쓰기 위해서
                 // 다형성 활용하기 위해서, 상위 클래스 타입으로 하위 객체들 저장하고
                 // 필요할 때만 각 객체의 고유 기능을 다운캐스팅해서 사용하는 구조.
         // 다운 캐스팅 할때는 instanceof 해서 꼭 확인하고 써야 오류 안남.
@@ -181,39 +193,31 @@ public class 실습12 {
         } // for e
 
         // 문제 8
-        //[문제 8] 다형성을 활용한 매개변수
-//1. Weapon 클래스와 이를 상속받는 Sword, Gun 클래스를 만드세요.
-// 각 클래스는 "무기로 공격합니다.", "검으로 공격합니다.", "총으로 공격합니다."를 출력하는 attack() 메소드를 가집니다. (오버라이딩 활용)
-//2. Weapon 타입의 매개변수를 받아 그 객체의 attack() 메소드를 호출하는 Character 클래스와 use(Weapon weapon) 메소드를 만드세요.
-//3. main 함수에서 Sword 객체와 Gun 객체를 생성한 뒤, 이 객체들을 Character의 use() 메소드에 인자로 전달하여 각기 다른 결과가 출력되는 것을 확인하세요.
 
-        Sword sword = new Sword();
-        Gun gun = new Gun();
-        Character character = new Character();
+        Sword sword = new Sword();              // Sword 객체 선언
+        Gun gun = new Gun();                    // Gun 객체 선언
+        Character character = new Character();  // Character 객체 선언
         character.use( sword );
+        // use(Weapon weapon) 메소드에서 인자값으로 받을 때 상속관계라 업캐스팅 되어 sword 객체 Weapon 타입으로 변환됨.
+        // 메소드 실행문이 weapon.attack(); 여기서 실제 attack() 메소드는 실제 sword.attack(); , gun.attack(); 실행됨.
         character.use( gun );
 
         // 문제 9
-        //[문제 9] 필드와 메소드의 오버라이딩 차이
-//1. String name = "상위"; 필드와 method() 메소드("상위 메소드" 출력)를 가진 SuperClass를 만드세요.
-//2. SuperClass를 상속받고, String name = "하위"; 필드와 method() 메소드("하위 메소드" 출력)를 가진 SubClass를 만드세요.
-//3. SuperClass obj = new SubClass(); 로 객체를 생성한 뒤, obj.name과 obj.method()를 각각 호출했을 때의 결과를 확인하고,
-// 왜 다른 결과가 나오는지 주석으로 설명하세요.
-        SuperClass obj = new SubClass();
-        System.out.println(obj.name);
-        obj.method();
+
+        SuperClass obj = new SubClass();    // SubClass 객체 선언 후 SuperClass 타입의 obj에 저장
+        System.out.println(obj.name);       // "상위" 출력
+        obj.method();                       // "하위 메소드" 출력
         // 메소드는 실제 객체 타입 기준이고 , 다형성이 적용됨. 그래서 호출 시 하위 클래스 메소드가 출력됨
-        // 변수(필드 , 여기서는 name)는 참조 변수 타입 기준이됨 . 다형성이 적용 안됨.
+        // 변수(필드 , 여기서는 name)는 참조 변수 타입(상위 클래스) 기준이됨 . 다형성이 적용 안됨.
         // 또한 변수는 컴파일 타임에 '타입'만 보고 결정됨 오버라이딩이 아니라 '숨김' 처리 됨
         // ----> 컴파일러에서 obj가 SuperClass 타입이여서 SuperClass.name 을 고정으로 사용함.
 
         // 문제 10
-        //[문제 10] 다중 상속 관계
-//1. Device 클래스를 만드세요.
-//2. Device를 상속받는 Electronic 클래스를 만드세요.
-//3. Electronic을 상속받는 Laptop 클래스를 만드세요.
-//4. main 함수에서 Laptop 객체를 생성한 뒤,
-// 이 객체가 Electronic 타입과 Device 타입으로도 형 변환이 가능한지 instanceof 연산자로 확인하고 결과를 출력하세요.
+
+        Laptop laptop = new Laptop();   // Laptop 객체 생성
+        System.out.println(laptop instanceof Electronic);   // true 가능!
+        System.out.println(laptop instanceof Device);       // true 가능!
+
 
 
 
