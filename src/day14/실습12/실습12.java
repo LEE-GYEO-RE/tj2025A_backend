@@ -283,4 +283,5 @@ public class 실습12 {
 //2. Device를 상속받는 Electronic 클래스를 만드세요.
 //3. Electronic을 상속받는 Laptop 클래스를 만드세요.
 //4. main 함수에서 Laptop 객체를 생성한 뒤,
-// 이 객체가 Electronic 타입과 Device 타입으로도 형 변환이 가능한지 instanceof 연산자로 확인하고 결과를 출력하세요.
+// 이 객체가 Electronic 타입과 Device 타입으로도 형 변환이 가능한지
+// instanceof 연산자로 확인하고 결과를 출력하세요.
