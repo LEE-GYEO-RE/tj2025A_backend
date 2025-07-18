@@ -113,14 +113,16 @@ public class LogInView { // class start
             }
             break;
         }
-        boolean result = lendingStatusController.loanBook(bookLogInput);
-
-        if (result) System.out.println("[안내] '"+ bookName + "' 도서 대출이 완료되었습니다.");
-        else System.out.println("[경고] 도서 대출에 실패하였습니다. 다시 시도해주세요.");
         if(bookName == null){
             System.out.println("[경고] 해당 도서 번호가 존재하지 않습니다.");
             return;
         } // if end
+
+        boolean result = lendingStatusController.loanBook(bookLogInput);
+
+        if (result) System.out.println("[안내] '"+ bookName + "' 도서 대출이 완료되었습니다.");
+        else System.out.println("[경고] 도서 대출에 실패하였습니다. 다시 시도해주세요.");
+
     } // func e
 
     // 도서 반남
@@ -182,7 +184,7 @@ public class LogInView { // class start
             }
             if(bookinfo2 == null) continue;
                 System.out.println("[" + lendingStatus.getLoanLog() + "] " + bookinfo2.getBookName() + " | " + bookinfo2.getBookAuthor() + " | 대출일: " +
-                        lendingStatus.getLoanDate() + " | 반납일: ");
+                        lendingStatus.getLoanDate() + " | 반납일: " + lendingStatus.getDueDate());
         }
     } // func e
 

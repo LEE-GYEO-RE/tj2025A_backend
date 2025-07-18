@@ -43,7 +43,12 @@ public class LendingStatusDto { // class LendingStatusDto start
         this.memberNo = memberNo;
     }
 
+    // 대출 시작 날짜 생성자
     public LendingStatusDto(int bookLogInput, int memberNo) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        loanDate = formatter.format( LocalDateTime.now() ) ;
+        this.bookLog = bookLogInput;
+        this.memberNo = memberNo;
     }
 
     // 반납 메소드
