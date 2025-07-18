@@ -78,7 +78,50 @@
             1. FK속성타입과 PK속성타입은 일치해야한다. ex) PK속성 타입이 bigint면 FK속성 타입도 bigint 이어야함
             2. 관례적으로 pk속성명과 fk속성명은 동일하게 한다.
 
+[ 생성된 테이블 다이어그램 확인 ] : 여럿 테이블 간의 관계 확인
+    #  workbench 상단메뉴 -> [database] -> [reverse engineer] -> stored conntion : local(선택) -> [next]
+    # -> 비밀번호입력 [next] -> 데이터베이스 선택 -> [next] -> [finish]
 
+[ 키워드 ]
+    1. 별칭 : as
+        select 속성명 as 별칭 from 테이블명 as 별칭
+        select 속성명 별칭 from 테이블명 별칭
+    2. 중복제거 : distinct
+        select distinct 속성명 from 테이블명
+[ 연산자 ]
+    1. 산술연산자 : +더하기 -빼기 *곱하기 /나누기 div몫 mod나머지
+        select (산술) from 테이블명 where (산술)
+    2. 비교연산자 : >초과 <미만 >=이상 <=이하 =같다 !=같지않다
+        select 속성명 from 테이블명 where (비교)
+    3. 논리연산자 : and이면서 or이거나 not부정
+        select 속성명 from 테이블명 where (논리)
+    4. 기타연산자
+        (1) select 속성명 from 테이블명 where 속성명 between 시작값 and 끝값
+        (2) select 속성명 from 테이블명 where 속성명 in( 값1 , 값2 )
+    5. null연산자
+        (1) select 속성명 from 테이블명 where 속성명 is null
+        (2) select 속성명 from 테이블명 where 속성명 is not null
+    6. 문자패턴
+        (1) 속성명 like '%'    : 모든문자대응 , 제한없음
+            select 속성명 from 테이블명 where 이름 like '김%';    김씨 찾기 , 김x 김xx 김xxx 김xxxx
+        (2) 속성명 like '_'    : 모든문자대응 , _개수만큼 문자조회
+            select 속성명 from 테이블명 where 이름 like '김__';    김씨 찾기 , 김xx
+[ 정렬 ]
+    1. order by 속성명 asc     : 오름차순 , asc/desc 생략시 기본값
+    2. order by 속성명 desc    : 내림차순
+    * 주의할점 : 2차 정렬부터는 앞 정렬의 동일한 레코드끼리 정렬
+    select 속성명 from 테이블명 order by 학급 asc , 점수 desc;     학급 먼저 정렬후 동일한 학급끼리 점수 정렬
+
+[ 조회결과 제한 ]
+    1. limit 레코드수
+    2. limit 시작레코드번호(0) , 개수
+    * 주로 페이징처리 사용됨.
+    select 속성명 from 테이블명 limit 0 , 10;  [1페이지]
+    select 속성명 from 테이블명 limit 10 , 10; [2페이지]
+    select 속성명 from 테이블명 limit 20 , 10; [3페이지]
+
+[ 키워드 작성 순서 ]
+    [select] 속성명 [from] 테이블명 [where] 조건절 [order by] 속성명 asc/desc [limit] 개수;
 
 
 

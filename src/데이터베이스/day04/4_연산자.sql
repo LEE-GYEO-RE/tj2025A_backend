@@ -93,10 +93,10 @@ select * from member where mphone1 is null;		-- 속성값이 null 인 레코드 
 select * from member where mphone1 is not null; -- 속성값이 null 이 아닌 레코드 조회
 
 # 문자 패턴 : 속성명 like '문자패턴' , % : 문자대응(개수상관) , _ : 문자대응(_수만큼)	
-select * from member where mname like '에이%';		-- 속성의 값이'에이'로 시작하는 레코드 조회			, 에이x 에이xx 에이xxx 등등
-select * from member where mname like '에이_';		-- 속성의 값이'에이'로 시작하는 세글자 레코드 조회	, 에이x 무조건 세글자
-select * from member where mname like '%핑크';		-- 속성의 값이 '핑크'로 끝나는 레코드 조회			, x핑크 xx핑크 xxx핑크 등등
-select * from member where mname like '%이%';		-- 속성의 값에 '이'가 포함된 레코드 조회			, x이x xx이x xxxx이xxx 등등
+select * from member where mname like '에이%';		-- 속성의 값이'에이'로 시작하는 레코드 조회		    , 에이x 에이xx 에이xxx 등등
+select * from member where mname like '에이_';		-- 속성의 값이'에이'로 시작하는 세글자 레코드 조회	    , 에이x 무조건 세글자
+select * from member where mname like '%핑크';		-- 속성의 값이 '핑크'로 끝나는 레코드 조회		    , x핑크 xx핑크 xxx핑크 등등
+select * from member where mname like '%이%';		-- 속성의 값에 '이'가 포함된 레코드 조회			    , x이x xx이x xxxx이xxx 등등
 select * from member where mname like '_이_';		-- 속성의 값에 두번째 글자가 '이'인 세글자 레코드 조회 , x이x 무조건 세글자
 
 # [5] order by 속성명 asc/desc , 정렬	--> asc : 오름차순/기본값 , desc : 내림차순
