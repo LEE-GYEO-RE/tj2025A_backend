@@ -129,9 +129,8 @@ select author , count(*) as 도서수
     having 도서수 >= 2;
 -- [문제 11] books 테이블의 '컴퓨터' 장르 도서 중 가장 비싼 도서의 가격을 조회하세요.
 select * from books;
-select title , price from books;
-select title , genre , max(price) 
-	from books;
+
+select title , genre , max(price) from books group by genre , title  having genre = '컴퓨터' ; 
 -- [문제 12] books 테이블의 '소설' 장르 도서들의 총 재고 수량을 조회하세요.
 -- [문제 13] orders 테이블에서 주문을 한 고객이 총 몇 명인지 조회하세요. (DISTINCT 사용)
 -- [문제 14] orders 테이블에서 고객별로 첫 주문일과 마지막 주문일을 조회하세요.
