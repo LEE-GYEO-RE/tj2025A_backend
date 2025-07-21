@@ -129,14 +129,32 @@ select author , count(*) as 도서수
     having 도서수 >= 2;
 -- [문제 11] books 테이블의 '컴퓨터' 장르 도서 중 가장 비싼 도서의 가격을 조회하세요.
 select * from books;
-
-select title , genre , max(price) from books group by genre , title  having genre = '컴퓨터' ; 
+select max(price) from books where genre = '컴퓨터';
 -- [문제 12] books 테이블의 '소설' 장르 도서들의 총 재고 수량을 조회하세요.
+select * from books;
+select sum(stock) from books where genre = '소설';
 -- [문제 13] orders 테이블에서 주문을 한 고객이 총 몇 명인지 조회하세요. (DISTINCT 사용)
+select * from orders;
+select distinct customer from orders;
 -- [문제 14] orders 테이블에서 고객별로 첫 주문일과 마지막 주문일을 조회하세요.
+select * from orders;
+select customer , min(order_date) , max(order_date) from orders group by customer;
 -- [문제 15] orders 테이블에서 도서별 평균 주문 수량을 조회하세요.
+select * from orders;
+select book_id , avg(order_qty) from orders group by book_id;
 -- [문제 16] books 테이블에서 장르별 평균 가격이 18000원을 초과하는 장르와 그 평균 가격을 조회하세요.
+select * from books;
+select genre , avg(price) from books group by genre having avg(price) > 18000;
 -- [문제 17] orders 테이블에서 2023년 1분기(1월~3월)에 발생한 총 주문 수량을 조회하세요. (BETWEEN 사용)
+select * from orders;
+select count(*) from orders where order_date between '2023-01-01' and '2023-03-31'; 
 -- [문제 18] orders 테이블에서 가장 다양한 종류의 책을 주문한 고객의 이름과 그 종류의 수를 조회하세요.
+select * from orders;
+select customer , count(distinct book_id) as top from orders group by customer order by top desc limit 1;
 -- [문제 19] books 테이블에서 각 장르별로 가장 저렴한 도서의 가격을 조회하세요.
+select * from books;
+select genre , min(price) from books group by genre order by min(price) asc limit 1;
 -- [문제 20] orders 테이블에서 주문을 단 한 번만 한 고객을 조회하세요. (조회결과: 0개 레코드)
+select * from orders;
+select customer , sum(order_qty) from orders group by customer;
+select customer from orders group by customer having sum(order_qty) = 1;
