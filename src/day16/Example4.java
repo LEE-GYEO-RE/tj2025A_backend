@@ -32,7 +32,7 @@ public class Example4 {
             System.out.println(file.isFile());      // .isFile() : 파일 경로 여부 반환 true/false
             System.out.println(file.getName());     // .getName() : 파일 이름 반환
             System.out.println(file.length());      // .length() : 파일 용량(바이트) (long) 반환
-            System.out.println(file.exists());        // .exists() : 파일 존재 여부 반환 ture/false
+            System.out.println(file.exists());      // .exists() : 파일 존재 여부 반환 ture/false
 
             // System.out.println(예외발생);
 
