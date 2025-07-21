@@ -20,11 +20,11 @@ public class WaitingController {
     // 등록 기능 구현
     public boolean addWaiting(String phone , int count ){
         boolean result = false;
-        // result 값 false 로 초기 설정
+        // result 값 false 로 초기값 설정
         result = waitingDao.addWaiting(phone , count);
-        // phone , count 입력받은 값 dao 등록 기능 함수로 전달하기 위해 저장
+        // 전달받은 phone과 count 값을 DAO의 addWaiting 메서드에 전달하여 대기 등록 시도
         return result;
-        // 그리고 반환
+        // dao에서 처리한 결과를 반환
     } // func e
 
     // 전체 조회 기능 구현
