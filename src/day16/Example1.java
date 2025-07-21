@@ -26,13 +26,21 @@ public class Example1 {
                     - 프로그램을 24시간 중단 없이 실행하기 위한 안전한 로직 구현 <100%는 없음 --> 유지보수 >
 
                 5. 예외 클래스
-                    ClassNotFoundException  : 클래스를 못찾았을 때 발생되는 정보를 저장하는 클래스
-                    InterruptedException    : 흐름이 중단 되었을 때 발생되는 정보를 저장하는 클래스
-                    NullPointerException    : 객체가 없는데 객체에 접근연산자 사용하면 발생 클래스
+                    Exception : 모든 예외들의 상위 클래스 -> 어떤 예외인지 모를 때 한번에 처리도 가능함.
+                        - ClassNotFoundException  : 클래스를 못찾았을 때 발생되는 정보를 저장하는 클래스
+                        - InterruptedException    : 흐름이 중단 되었을 때 발생되는 정보를 저장하는 클래스
+                        - NullPointerException    : 객체가 없는데 객체에 접근연산자 사용하면 발생 클래스
+                        - NumberFormatException
+                        - ArrayIndexOutOfBoundsException
+                        - InputMismatchException
+                        등등
 
                 6. 사용법
                     try{ 예외가 발생할 것 같은 코드 또는 일반예외 }
                     catch( 예외클래스명 매개변수명 ){ 지정한 예외발생시 처리할 코드 }
+                    catch( 예외클래스명 매개변수명 ){ 지정한 예외발생시 처리할 코드 }
+                    catch( 예외클래스명 매개변수명 ){ 지정한 예외발생시 처리할 코드 }   // catch 여러개 사용 가능
+                    finally{ 예외 여부 상관없이 무조건 실행되는 코드}
         */
 
         // ------------------------------ 예제 에서는 강제로 예외 발생하는 상황 ---------------------------
@@ -104,6 +112,23 @@ public class Example1 {
             System.out.println("[예외발생7] 숫자를 입력해주세요." + e);
         }
 
+        // [8] 다중 catch 와 finally
+        try {
+            Integer.parseInt("1AA");            // 예외 발생시 아래코드는 실행되지 않고 catch 이동
+
+            int[] intArray = {1, 2, 3};
+            System.out.println(intArray[10]);  // 10번 인덱스 없음. 무조건 오류
+
+            String str = null;
+            System.out.println(str.length());  // 객체 비었음 이것도 무조건 오류
+        }
+        catch (NumberFormatException e1 ){ System.out.println(e1); }
+        catch (ArrayIndexOutOfBoundsException e2){ System.out.println(e2); }
+        catch (NullPointerException e3 ){ System.out.println(e3);}
+        catch (Exception e4 ){ System.out.println(e4); }
+        // - 주의할점1 : 다중 catch 시 먼저 발생한 예외부터 하나의 예외 발생하고 1개의 catch 만 실행된다.
+        // - 주의할점2 : Exception 클래스는 모든 예외를 처리 하므로 다중 catch 시에는 맨 아래에서 정의한다.
+        finally { System.out.println("예외가 있던 없던 무조건 실행코드"); }
 
     } // main e
 } // class e
