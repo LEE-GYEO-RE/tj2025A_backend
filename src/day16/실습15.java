@@ -44,8 +44,8 @@ public class 실습15 {
             File file1 = new File(path);
             System.out.println(file1.isFile());     // 파일 경로 여부 반환
             System.out.println(file1.getName());    // 파일 이름 반환
-            System.out.println(file1.length());     // 파일 용량 반환
-            System.out.println(file1.exists());     // 파일 존재 여부 반환
+            System.out.println(file1.length());     // 파일 용량 반환 (long) 타입
+            System.out.println(file1.exists());     // 파일 존재 여부 반환 (true/false)
 
         }catch (Exception e){
             System.out.println("예외처리" + e);
