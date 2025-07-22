@@ -68,8 +68,8 @@ public class BoardDao {
             CSVReader csvReader = new CSVReader(fileReader);    // CSVReader 에 FileReader 대입하여 CSV 객체 생성
             List<String[]> inData = csvReader.readAll();        // .readAll() 함수로 모든 정보를 읽어온다.
             for (String[] row : inData) {                      // 향상된 for문
-                String content = row[0];                        // 첫번째 열
-                String writer = row[1];                         // 두번째 열
+                String content = row[0];                        // 각 행에서 첫번째 열
+                String writer = row[1];                         // 각 행에서 두번째 열
                 BoardDto boardDto = new BoardDto(content, writer);    // 각 열들을 하나의 dto로 생성
                 boardDB.add(boardDto);                          // 생성된 dto를 리스트에 저장
             } // for e
