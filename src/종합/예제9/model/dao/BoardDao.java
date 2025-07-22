@@ -81,17 +81,18 @@ public class BoardDao {
     // -------------------- 3. CSV 출력(저장) 함수
     public void saveCSV(){
         try {
-            FileWriter fileWriter = new FileWriter(path);
-            CSVWriter csvWriter = new CSVWriter(fileWriter);
-            List<String[]> outData = new ArrayList<>();
-            for (BoardDto boardDto : boardDB) {
+            FileWriter fileWriter = new FileWriter(path);        // FileWriter 파일 쓰기모드 객체 생성
+            CSVWriter csvWriter = new CSVWriter(fileWriter);     // CSVWriter 에 filewriter 객체를 대입하여 생성
+            List<String[]> outData = new ArrayList<>();          // 빈 리스트 생성  ArrayList(구현체) , List(인터페이스)
+            // 현재 모든 정보(boardDB)를 outData에 담아준다.
+            for (BoardDto boardDto : boardDB) {                 // dto 하나씩 내용과작성자를 배열 으로 구성
                 String[] row = {boardDto.getContent(), boardDto.getWriter()};
-                outData.add(row);
+                outData.add(row);                               // outData에 저장한다.
             } // for e
-            csvWriter.writeAll(outData);
-            csvWriter.close();
+            csvWriter.writeAll(outData);                        // 최종적으로 outData를 CSV 내보내기 한다.
+            csvWriter.close();                                  // 안전하게 객체 닫기
         }catch (Exception e) { System.out.println(e); }
-    }
+    } // func e
 
 } // class e
 
