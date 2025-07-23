@@ -26,6 +26,7 @@ public class AppStart {
         boolean result3 = WaitingController.getInstance().waitingUpdate( 2 , 99 );
         System.out.println(result3);
 
+
         // 메인 화면 출력
         WaitingView.getInstance().index();
     } // main e

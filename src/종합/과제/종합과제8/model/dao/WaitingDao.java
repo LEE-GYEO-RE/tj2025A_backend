@@ -96,7 +96,9 @@ public class WaitingDao {
                 System.out.println("기존 값과 같아서 변경 없음");
                 return true;
             } else {return false;}                                              // 1개 아니면 수정 실패 반환
-
+            // ---------> 처음에 false 뜨고 , 모든 count 값 = 0 으로 출력됨
+            // ----------> if문에 count == 0 이면 true 반환하게 함
+            // -----------> 0이면 true인데 콘솔에서 true 뜸 , 근데 수정됨 뭐임?
         }catch (Exception e){System.out.println(e);}
         return false;                                                         // 예외 있으면 수정 실패 반환
 
