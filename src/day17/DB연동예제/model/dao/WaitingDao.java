@@ -1,8 +1,12 @@
 package day17.DB연동예제.model.dao;
 
+import day17.DB연동예제.model.dto.WaitingDto;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class WaitingDao {
 
@@ -17,7 +21,7 @@ public class WaitingDao {
     }
 
     // DB 연동 필요한 정보
-    private String db_url = "jdbc:mysql://localhost:3306/WaitingList";
+    private String db_url = "jdbc:mysql://localhost:3306/mydb0722";
     // 데이터베이스 서버 주소
     private String db_user = "root";
     // 데이터베이스 계정명
@@ -51,8 +55,52 @@ public class WaitingDao {
     } // func e
 
     // 등록 함수
-
+    public boolean addWaiting(WaitingDto waitingDto){
+        try {
+            String sql = "insert into waiting ( phone , count ) values ( ? , ? )";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1 , waitingDto.getPhone());
+            ps.setInt( 2, waitingDto.getCount() );
+            int count = ps.executeUpdate();
+            if( count >=1 ) return true;
+            return false;
+        }catch (Exception e ){System.out.println(e);}
+        return false;
+    } // func e
 
     // 전체 조회 함수
+    public ArrayList<WaitingDto> waitingPrint(){
+        ArrayList<WaitingDto> list = new ArrayList<>();
+        try {
+            String sql = "select * from waiting ";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while( rs.next() ){
+                String phone = rs.getString("phone");
+                int count = rs.getInt("count");
+                WaitingDto waitingDto = new WaitingDto(  phone ,count);
+                list.add(waitingDto);
+            } // while e
+        }catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    } // func e
 
 } // class e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
