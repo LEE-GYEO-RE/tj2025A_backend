@@ -86,11 +86,20 @@ public class WaitingDao {
             PreparedStatement ps = conn.prepareStatement(sql);                // sql 기재
             ps.setInt( 1 , waitingDto.getCount());                            // 매개변수 dto의 wno 가져와서 첫번째 물음표에 대입
             ps.setInt( 2 , waitingDto.getWno());                              // 매개변수 dto의 count 가져와서 두번째 물음표에 대입
+            System.out.println(">> DAO 디버그: wno = " + waitingDto.getWno());
+            System.out.println(">> DAO 디버그: count = " + waitingDto.getCount());
             int count  = ps.executeUpdate();                                  // sql 실행
-            if(count  == 1 ) return true;                                     // 수정할 거 1개면 수정 성공 반환
-            else {return false;}                                              // 1개 아니면 수정 실패 반환
+            if(count  == 1 ) {
+                // System.out.println("DB 값 변경 완료");
+                return true;                                     // 수정할 거 1개면 수정 성공 반환
+            } else if (count == 0) {
+                System.out.println("기존 값과 같아서 변경 없음");
+                return true;
+            } else {return false;}                                              // 1개 아니면 수정 실패 반환
+
         }catch (Exception e){System.out.println(e);}
         return false;                                                         // 예외 있으면 수정 실패 반환
+
     } // func e
 
 } // class e

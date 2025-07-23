@@ -38,6 +38,8 @@ public class WaitingController {
     // 대기 정보 수정 기능 구현
     public boolean waitingUpdate(int wno , int count){                  // 매개변수 wno(수정할 번호) , count(수정할 인원)
         WaitingDto waitingDto = new WaitingDto( wno, null, count );     // 새로운 dto 객체에 count 새로 넣어서 저장
+        System.out.println(">> Controller 디버그: wno = " + wno);
+        System.out.println(">> Controller 디버그: count = " + count);
         boolean result = waitingDao.waitingUpdate(waitingDto);          // 새로 저장한거 dao로 보내서 결과 받기
         return result;                                                  // view 에게 결과 반환
     } // func e
