@@ -90,11 +90,11 @@ public class WaitingDao {
             System.out.println(">> DAO 디버그: count = " + waitingDto.getCount());
             int count  = ps.executeUpdate();                                  // sql 실행
             if(count  == 1 ) {
-                // System.out.println("DB 값 변경 완료");
+                 System.out.println("DB 값 변경 완료");
                 return true;                                     // 수정할 거 1개면 수정 성공 반환
             } else if (count == 0) {
-                System.out.println("기존 값과 같아서 변경 없음");
-                return true;
+                System.out.println("실패");
+                return false;
             } else {return false;}                                              // 1개 아니면 수정 실패 반환
             // ---------> 처음에 false 뜨고 , 모든 count 값 = 0 으로 출력됨
             // ----------> if문에 count == 0 이면 true 반환하게 함

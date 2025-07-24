@@ -23,7 +23,7 @@ public class AppStart {
         System.out.println(result2);
 
         // 대기 정보 수정 기능 테스트
-        boolean result3 = WaitingController.getInstance().waitingUpdate( 2 , 99 );
+        boolean result3 = WaitingController.getInstance().waitingUpdate( 3 , 99 );
         System.out.println(result3);
 
 
