@@ -118,7 +118,7 @@ public class MarketView {
         int pprice = scan.nextInt();
         scan.nextLine();
 
-        System.out.print("판매 상태 (예: 판매중 / 예약중 / 판매완료): ");
+        System.out.print("판매 상태 (예: 판매중 / 판매완료): ");
         String pstate = scan.nextLine();
 
         boolean result = marketController.productsUpdate(pno, sellpwd, pname, ptext, pprice, pstate);
