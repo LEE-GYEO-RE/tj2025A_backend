@@ -11,6 +11,7 @@ public class MarketDto {
     private String sellpwd;     // 판매자 비밀번호
     private String pstate;      // 판매여부
     private String add_date;    // 등록 일시
+    private int pcount;      // 등록수
 
     // 기본 생성자
     public MarketDto() { }
@@ -29,6 +30,14 @@ public class MarketDto {
     }
 
     // getter , setter  메소드
+
+    public int getPcount() {
+        return pcount;
+    }
+
+    public void setPcount(int pcount) {
+        this.pcount = pcount;
+    }
 
     public int getPno() {
         return pno;
