@@ -15,6 +15,8 @@ public class QuiryController {
 
     // 물품 문의
     public boolean productsQuiry(QuiryDto quiryDto) {
+        // view 에서 입력받는 QuiryDto 타입 값들 그대로 매개변수로 설정
         return quiryDao.productsQuiry(quiryDto);
+        // dao에게 메소드 요청 -> 반환 값 다시 반환 (실제 view로 갈 실제 값)
     }
 } // class e

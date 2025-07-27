@@ -35,19 +35,23 @@ public class QuiryDao {
 
     // 물품 문의 메소드
     public boolean productsQuiry(QuiryDto quiryDto) {
+        // controller 에서 요청하는 문의글 정보와 같이 매개변수 설정
         try {
             String sql = "INSERT INTO p_quiry(pno, qtext, qid, qpwd, q_date) VALUES (?, ?, ?, ?, NOW())";
+            // DB에서 p_quiry 테이블에 추가할 값들 설정
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, quiryDto.getPno());
-            ps.setString(2, quiryDto.getQtext());
-            ps.setString(3, quiryDto.getQid());
-            ps.setString(4, quiryDto.getQpwd());
+            // 기재할 sql문 선언
+            ps.setInt(1, quiryDto.getPno());        // 첫번째 물음표에 문의글 정보dto의 물품번호 저장
+            ps.setString(2, quiryDto.getQtext());   // 두번째 물음표에 문의글 정보dto의 문의글내용 저장
+            ps.setString(3, quiryDto.getQid());     // 세번째 물음표에 문의글 정보dto의 문의자아이디 저장
+            ps.setString(4, quiryDto.getQpwd());    // 네번째 물음표에 문의글 정보dto의 문의자비번 저장
 
-            int row = ps.executeUpdate();
-            return row == 1;
+            int row = ps.executeUpdate();                       // sql문 int 타입으로 저장
+            return row == 1;                                    // 문의 등록할 레코드 1개면 true 반환
         } catch (Exception e) {
             System.out.println("[DB 문의 등록 오류] " + e.getMessage());
-            return false;
+            // 오류 시 오류 메시지 출력
+            return false;                                       // 문의 등록할 레코드 1개 아니면 false.
         }
     } // func e
 
