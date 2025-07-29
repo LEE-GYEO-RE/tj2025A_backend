@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="tj2025A_backend:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/tj2025A_backend_jar</output-path>
+    <root id="archive" name="tj2025A_backend.jar">
+      <element id="module-output" name="tj2025A_backend" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/day17/opencsv-2.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/day17/mysql-connector-j-9.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/ttoekttak/resource/mysql-connector-j-9.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/종합/예제10/resource/mysql-connector-j-9.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/day17/DB연동예제/opencsv-2.3.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
