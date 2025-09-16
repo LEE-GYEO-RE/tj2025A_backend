@@ -1,0 +1,71 @@
+[ 무료 데이터베이스 ]
+    1.  https://freedb.tech/
+    2. [ Get Started ]
+    3. 회원가입 진행 후
+        -------------------
+        About : User(아무거나)
+        Use Case Of Database : User(아무거나)
+        full name : User(아무거나)
+        --------------------
+    4. 로그인
+    5. [ Dashboard ]
+        Host : 확인
+        Port : 3306
+        Database Name: 확인
+        Password : 확인
+
+[ MYSQL WorkBench ]
+    1. 실행 ->>  상단메뉴 ->> [database] ->> connect database
+    2.
+        connect name : 아무거나
+        connect method : standard
+        host name : [ Dashboard ]확인한 host
+        port : 3306(고정)
+        username : [ Dashboard ]확인한 Database Name
+        password : [ Dashboard ]확인한 password
+        [ OK ]
+
+[ DAO 에서 DB 정보 수정 ]
+    (1) 로컬 환경
+    private String db_url = "jdbc:mysql://localhost:3306/exam10";
+    private String db_user = "root";
+    private String db_password = "1234";
+
+    (2) freeDB 클라우드 환경 , 주의할점 : 깃허브를 private 하기.
+    private String db_url = "jdbc:mysql://sql.freedb.tech:3306/freedb_itdanja";
+    private String db_user = "freedb_itdanja";
+    private String db_password = "KkNNeers8!p!QZ*";
+
+[ 프로젝트 --> .jar 파일 생성 ]
+    1. 인텔리제이 상단 메뉴 -> [파일] -> [ 프로젝트 구조 ]
+    2. 왼쪽 메뉴 -> [아티팩트]클릭 -> [+] -> [JAR] -> [종속성 포함 모듈에서]
+    3.
+        메인클래스 : JAR변경할 클래스선택
+        [OK]
+    4. [적용] -> [확인]
+    5. 인텔리제이 상단 메뉴 -> [빌드] -> [아티팩트 빌드] -> [빌드]
+    6. 확인 : 프로젝트 폴더내 -> out폴더 -> artifacts폴더-> tj2025A_backend.jar
+
+[ .jar 파일 --> .exe 파일 생성 ]
+    1. https://sourceforge.net/projects/launch4j/files/launch4j-3/3.50/
+    2. [launch4j-3.50-win32.exe] 다운로드 클릭
+    3. 설치 진행
+    4. launch4j 실행 <----------- 현재 운영체제에 java 설치된 환경 가능!
+        [basic] 탭
+            output file : .exe 파일 경로 지정 , 예) C:\Users\tj-bu-702-teacher\Desktop\consoleProgram.exe
+            jar : 생성된 .jar 파일 경로
+        [Header] 탭
+            header type : console
+        [JRE] 탭
+            min jre version : 1.8
+    5. 상단 메뉴에 톱니바퀴[아이콘] 클릭 -> 설정파일 저장(아무거나) ->  하단 log창에 'Successfully' 출력되면 성공
+
+[ java 설치 ]
+    1. jdk17 : https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
+    2. Windows x64 Installer	153.92 MB
+       https://download.oracle.com/java/17/archive/jdk-17.0.12_windows-x64_bin.exe (sha256 ) 클릭
+    3. 설치 진행
+    4. 확인 : cmd(명령프롬프트) --> java -version 입력후 엔터
+        java version "17.0.12" 2024-07-16 LTS
+        Java(TM) SE Runtime Environment (build 17.0.12+8-LTS-286)
+        Java HotSpot(TM) 64-Bit Server VM (build 17.0.12+8-LTS-286, mixed mode, sharing)
